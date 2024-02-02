@@ -2,10 +2,10 @@ const bcrypt = require("bcryptjs")
 const { PrismaClient } = require("@prisma/client")
 const prisma = new PrismaClient()
 
-const Password  = bcrypt.hashSync('123456')
+const Password  = bcrypt.hashSync('123')
 const UserData = [
-    {Username : 'andy', Password , Email : 'andy@ggmail.com'},
-    {Username : 'bobby', Password , Email : 'bobby@ggmail.com'},
+    {Username : 'rayko', Password , Email : 'andy@ggmail.com'},
+    {Username : 'rayko2', Password , Email : 'bobby@ggmail.com'},
     {Username : 'jimmy', Password , Email : 'jimmy@ggmail.com'},
 ]
 

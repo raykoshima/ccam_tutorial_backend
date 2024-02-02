@@ -20,7 +20,7 @@ model User {
   id       Int     @id @default(autoincrement())
   Username String  @unique @db.VarChar(30)
   Password String  @db.VarChar(72)
-  Email    String?
+  Email    String? 
   Todo     Todo[]
 }
 

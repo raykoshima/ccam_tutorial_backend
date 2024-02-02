@@ -2,6 +2,7 @@
 
 PORT=<br>
 JWT_SECRET_KEY=<br>
+DATABASE_URL="mysql://<username>:<password>@localhost:3306/todolist_test"<br>
 
 ----------------------
 
@@ -28,15 +29,12 @@ MVC (Model,Route+Controller,View)
 
 ----------------------
 Get Start
+Go config database in .env
+ไป config database ในไฟล์ .env
 
+จากนั้นใช้คำสั่งตาม
 ```
 npm i 
-
-npx prisma
-npx prisma init
-```
-Go config database in .env
-```
 npx prisma db push
 npx prisma db seed
 ```

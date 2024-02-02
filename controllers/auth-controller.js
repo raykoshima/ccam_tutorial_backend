@@ -1,5 +1,7 @@
 const bcrypt = require("bcryptjs")
 const prisma = require("../models/db")
+const jwt = require("jsonwebtoken")
+
 exports.register = async (req,res,next) => {
     try {
     const {username, password, confirmPassword, email} = req.body
@@ -29,17 +31,28 @@ exports.register = async (req,res,next) => {
     }
     
 }
-exports.login = (req,res,next) => {
+exports.login = async (req,res,next) => {
     const { username , password } = req.body;
-    //
-    if( !(username.trim() && password.trim())){
-        throw new Error("Please Fill Input")
-    }
-    const user = prisma.user.findFirstOrThrow({
-        where:{
-            Usernam:username,
-            Password:password
+    try {
+        if( !(username.trim() && password.trim())){
+            throw new Error("Please Fill Input")
         }
-    })
-    res.send("in login...")
+        const user = await prisma.user.findFirstOrThrow({
+            where:{
+                Username:username
+            }
+        })
+        const pwOk = await bcrypt.compare(password,user.Password)
+        if(!pwOk) {
+            throw new Error('invalid login')
+        }
+        const payload = { id: user.id }
+        const token = jwt.sign(payload, process.env.JWT_SECRET_KEY)
+        res.json({token : token})
+    } catch (err) {
+        console.log(err.message)
+        next(err)
+    }
+    //
+    
 }

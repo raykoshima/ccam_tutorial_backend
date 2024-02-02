@@ -1,7 +1,7 @@
 ** env_guide **
 
 PORT=
-JWT_KEY=
+JWT_SECRET_KEY=
 
 ----------------------
 

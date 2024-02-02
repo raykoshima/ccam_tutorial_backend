@@ -35,10 +35,7 @@ Go config database in .env
 จากนั้นใช้คำสั่งตาม
 ```
 npm i 
+npm run resetDB // for reset
 npx prisma db push
 npx prisma db seed
-```
-To reset database use
-```
-npm run resetDB
 ```

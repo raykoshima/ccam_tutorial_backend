@@ -30,5 +30,16 @@ exports.register = async (req,res,next) => {
     
 }
 exports.login = (req,res,next) => {
+    const { username , password } = req.body;
+    //
+    if( !(username.trim() && password.trim())){
+        throw new Error("Please Fill Input")
+    }
+    const user = prisma.user.findFirstOrThrow({
+        where:{
+            Usernam:username,
+            Password:password
+        }
+    })
     res.send("in login...")
 }

@@ -13,13 +13,11 @@ const TodoData = [
     {Title : 'Learn HTML', Duedate: new Date(), UserID : 1},
     {Title : 'Learn js', Duedate: new Date(), UserID : 2},
     {Title : 'Learn java', Duedate: new Date(), UserID : 3},
-    {Title : 'Learn your mom', Duedate: new Date(), UserID : 4},
+    {Title : 'Learn your mom', Duedate: new Date(), UserID : 3},
 ]
 
 const run = async () => {
 
-    await prisma.user.deleteMany({})
-    await prisma.todo.deleteMany({})
     await prisma.user.createMany({
         data : UserData
     })

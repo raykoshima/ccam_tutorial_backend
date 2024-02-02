@@ -1,12 +1,13 @@
 ** env_guide **
 
-PORT=
-JWT_SECRET_KEY=
+PORT=<br>
+JWT_SECRET_KEY=<br>
 
 ----------------------
 
 ** api_service **
 
+```
 method                 path                params         query
 
 GET                    /product            none           none
@@ -15,7 +16,7 @@ GET                    /id/                :id            none
 GET                    /search             none           ?query
 POST                   /auth/register      none           {username, password, confirmPassword, email}
 POST                   /auth/login         none           {username, password}
-
+```
 
 ----------------------
 

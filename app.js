@@ -8,6 +8,7 @@ const notFoundHandler = require("./middlewares/notfound")
 const authenticate = require("./middlewares/authorization")
 
 const authRoute = require("./routes/auth-route")
+const todoRoute = require("./routes/todo-route")
 
 
 app.use(cors())
@@ -19,6 +20,7 @@ app.use("/product",()=>{})
 // app.use("/useronly", authenticate ,(req,res,next)=>{
 //     res.json({ user: req.user })
 // })
+app.use("/todos",todoRoute)
 
 
 app.use(errorHandler);

@@ -17,6 +17,7 @@ GET                    /search                      none           ?query       
 POST                   /auth/register               none           none              {username, password, confirmPassword, email}
 POST                   /auth/login                  none           none              {username, password}
 GET                    /auth/me        true         none           none              none
+GET                    /todos          true         none           none              none
 ```
 
 ----------------------

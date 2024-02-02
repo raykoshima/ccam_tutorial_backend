@@ -13,11 +13,12 @@ const authRoute = require("./routes/auth-route")
 app.use(cors())
 app.use(express.json())
 
+
 app.use("/auth",authRoute)
 app.use("/product",()=>{})
-app.use("/useronly", authenticate ,(req,res,next)=>{
-    res.json({ message:"user only"})
-})
+// app.use("/useronly", authenticate ,(req,res,next)=>{
+//     res.json({ user: req.user })
+// })
 
 
 app.use(errorHandler);

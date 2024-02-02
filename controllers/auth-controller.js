@@ -47,7 +47,9 @@ exports.login = async (req,res,next) => {
             throw new Error('invalid login')
         }
         const payload = { id: user.id }
-        const token = jwt.sign(payload, process.env.JWT_SECRET_KEY)
+        const token = jwt.sign(payload, process.env.JWT_SECRET_KEY,{
+            expiresIn: '10d'
+        })
         res.json({token : token})
     } catch (err) {
         console.log(err.message)
@@ -55,4 +57,8 @@ exports.login = async (req,res,next) => {
     }
     //
     
+}
+
+exports.getMe = (req,res,next) => {
+    res.json(req.user)
 }

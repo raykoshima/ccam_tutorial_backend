@@ -24,3 +24,22 @@ GET                    /auth/me        true         none           none         
 Note
 
 MVC (Model,Route+Controller,View)
+
+----------------------
+Get Start
+
+```
+npm i 
+
+npx prisma
+npx prisma init
+```
+Go config database in .env
+```
+npx prisma db push
+npx prisma db seed
+```
+To reset database use
+```
+npm run resetDB
+```
